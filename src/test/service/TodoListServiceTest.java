@@ -8,7 +8,7 @@ import service.TodoListServiceImpl;
 
 public class TodoListServiceTest {
     public static void main(String[] args) {
-        testShowTodoList();
+        testAddTodoList();
     }
 
     public static void testShowTodoList(){
@@ -20,5 +20,17 @@ public class TodoListServiceTest {
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
 
         todoListService.showTodoList();
+    }
+
+    public static void testAddTodoList(){
+        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+
+        todoListService.addTodoList("Nyobain Todolist");
+        todoListService.addTodoList("Nyobain2 Todolist");
+        todoListService.addTodoList("Nyobain3 Todolist");
+
+        todoListService.showTodoList();
+
     }
 }
