@@ -49,7 +49,20 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public void remove(Integer num) {
-
+    public boolean remove(Integer num) {
+        if ((num - 1) >= data.length) {
+            return false;
+        } else if (data[num - 1] == null) {
+            return false;
+        } else {
+            for (int i = (num - 1); i < data.length; i++) {
+                if (i == (data.length - 1)) {
+                    data[i] = null;
+                } else {
+                    data[i] = data[i + 1];
+                }
+            }
+            return true;
+        }
     }
 }

@@ -35,6 +35,13 @@ public class TodoListServiceImpl implements TodoListService {
 
     @Override
     public void removeTodoList(Integer num) {
+        boolean success = todoListRepository.remove(num);
+        if (success) {
+            System.out.println("SUKSES MENGAPUS TODO : " + num);
+        } else {
+            System.out.println("GAGAL MENGHAPUS TODO : " + num);
+        }
+
 
     }
 }
